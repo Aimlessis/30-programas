@@ -1,4 +1,4 @@
-# Ejercicios de Programación d
+# Ejercicios de Programación
 
 ## Cómo compilar y ejecutar
 
