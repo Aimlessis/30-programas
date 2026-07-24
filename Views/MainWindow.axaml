@@ -1,0 +1,36 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaEjercicios.ViewModels"
+        xmlns:views="using:AvaloniaEjercicios.Views"
+        x:Class="AvaloniaEjercicios.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="Ejercicios de Programación — Avalonia"
+        Width="900" Height="640" MinWidth="640" MinHeight="480">
+
+    <Window.Resources>
+        <!-- Renders whichever ExerciseViewModel is currently selected -->
+        <DataTemplate x:Key="ExerciseTemplate" DataType="vm:ExerciseViewModel">
+            <views:ExerciseView />
+        </DataTemplate>
+    </Window.Resources>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem x:Name="EjerciciosMenu" Header="_Ejercicios" />
+        </Menu>
+
+        <Border DockPanel.Dock="Top" Background="#1E293B" Padding="16,10">
+            <StackPanel>
+                <TextBlock Text="Ejercicios de Programación — 01 a 30"
+                           Foreground="White" FontSize="18" FontWeight="SemiBold" />
+                <TextBlock Text="Elige un ejercicio desde el menú 'Ejercicios' arriba."
+                           Foreground="#CBD5E1" FontSize="12" />
+            </StackPanel>
+        </Border>
+
+        <ContentControl Content="{Binding CurrentExercise}"
+                         ContentTemplate="{StaticResource ExerciseTemplate}"
+                         Margin="0" />
+    </DockPanel>
+
+</Window>
